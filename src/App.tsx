@@ -1,14 +1,12 @@
 
 import Button from './components/Button/Button'
-import { Appearance, Variant } from './types/interfaces/ButtonProp'
 
 const App = () => {
   return (
     <>
-      <Button variant={Variant.Secondary} appearance={Appearance.Outline} disable={false}>
+      <Button variant="primary" appearance="fill" loading>
         Hello
       </Button>
-      <h1 className=''>Mandar</h1>
     </>
   )
 }

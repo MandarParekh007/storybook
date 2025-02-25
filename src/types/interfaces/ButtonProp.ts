@@ -7,4 +7,9 @@ export interface IButtonProp {
     disable?: boolean
     size?: "sm" | "md" | "lg"
     children?: React.ReactNode
+    isIcon?: string
+}
+
+export interface IIconButtonProp {
+    icon: string
 }

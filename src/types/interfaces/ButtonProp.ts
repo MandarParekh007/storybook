@@ -9,7 +9,3 @@ export interface IButtonProp {
     children?: React.ReactNode
     isIcon?: string
 }
-
-export interface IIconButtonProp {
-    icon: string
-}

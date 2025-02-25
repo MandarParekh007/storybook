@@ -2,18 +2,18 @@ import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle } from "@/co
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowBigUp } from "lucide-react";
-import { 
-    Select, 
-    SelectContent, 
-    SelectItem, 
-    SelectTrigger, 
-    SelectValue 
-  } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from "@/components/ui/select";
 
 interface BottomSheetProps<T> {
   state: T;
   setState: (newState: T) => void;
-  OPTIONS: Record<string, string[]>
+  OPTIONS: Record<string, string[] | boolean[]>;
 }
 
 export function BottomSheet<T extends Record<string, any>>({ state, setState, OPTIONS }: BottomSheetProps<T>) {
@@ -38,7 +38,7 @@ export function BottomSheet<T extends Record<string, any>>({ state, setState, OP
               {OPTIONS[key] ? (
                 // Use dropdown for predefined options
                 <Select
-                  onValueChange={(newValue) => setState({ ...state, [key]: newValue == "true" ? true : newValue == "false" ? false : newValue})}
+                  onValueChange={(newValue: string | boolean) => setState({ ...state, [key]: newValue == "true" ? true : newValue == "false" ? false : newValue })}
                   defaultValue={String(value)} // ✅ Ensures value is always a string
                 >
                   <SelectTrigger>
